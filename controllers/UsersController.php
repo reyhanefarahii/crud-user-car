@@ -6,6 +6,7 @@ use yii\web\Controller;
 use app\models\Users;
 use app\models\UsersSearch;
 use yii\data\ActiveDataProvider ;
+use yii\web\NotFoundHttpException;
 /**
  * manual CRUD
  **/

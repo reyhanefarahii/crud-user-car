@@ -2,6 +2,7 @@
 
 use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\grid\ActionColumn;
 ?>
  
 <style>
@@ -10,8 +11,8 @@ table th,td{
     border: 1px solid black;
 }
 </style>
- 
-<?= Html::a('Create', ['student/create'], ['class' => 'btn btn-success']); ?>
+
+<?= Html::a('Create', ['users/create'], ['class' => 'btn btn-success']); ?>
  
 <?= GridView::widget([
     'dataProvider' => $dataProvider,
@@ -28,5 +29,7 @@ table th,td{
         'family',
         'national_code',
     ],
-]) ?>
+]);?>
+
+
 
