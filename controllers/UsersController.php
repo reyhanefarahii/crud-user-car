@@ -1,11 +1,11 @@
 <?php
+
 namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use app\models\Users;
+use app\models\UsersSearch;
 use yii\data\ActiveDataProvider ;
-use yii\grid\GridView;
-
 /**
  * manual CRUD
  **/
@@ -20,6 +20,7 @@ class UsersController extends Controller
         $users = $provider->getModels();
         var_dump($users);
      }
+
     /**
      * Create
      */
@@ -38,10 +39,13 @@ class UsersController extends Controller
      * Read
      */
     public function actionList()
-    {
-        $users = Users::find()->all();
-         
-        return $this->render('list', ['model' => $users]);
+    {    
+        $searchModel = new UsersSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        return $this->render('list', [
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel
+        ]);
     }
     /**
      * Edit
