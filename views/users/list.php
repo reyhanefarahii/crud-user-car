@@ -6,13 +6,13 @@ use yii\helpers\Html;
 table th,td{
     padding: 10px;
     border: 1px solid black;
-    }
 }
+
 </style>
  
 <?= Html::a('Create', ['student/create'], ['class' => 'btn btn-success']); ?>
  
-<table >
+<table>
     <tr>
         <th>name</th>
         <th>family</th>

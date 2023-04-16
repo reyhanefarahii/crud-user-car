@@ -1,10 +1,11 @@
 <?php
-
 namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use app\models\Users;
 use yii\data\ActiveDataProvider ;
+use yii\grid\GridView;
+
 /**
  * manual CRUD
  **/
