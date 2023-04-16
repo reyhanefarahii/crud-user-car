@@ -30,7 +30,7 @@ table th,td{
         ],
         'color',
         [
-            'class' => ActionColumn::className(), 'template' => '{delete}',
+            'class' => ActionColumn::className(), 'template' => '{delete} {update}',
             'urlCreator' => function ($action,$model, $key, $index, $column){
                 return Url::toRoute([$action, 'id'=> $model->id]);
             }

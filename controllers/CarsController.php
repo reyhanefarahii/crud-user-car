@@ -49,10 +49,10 @@ class CarsController extends Controller
         ]);
     }
     /**
-     * Edit
+     * Update
      * @param integer $id
      */
-    public function actionEdit($id)
+    public function actionUpdate($id)
     {
         $model = Cars::find()->where(['id' => $id])->one();
         // $id not found in database
