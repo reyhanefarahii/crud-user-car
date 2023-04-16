@@ -3,23 +3,23 @@
 namespace app\controllers;
 use Yii;
 use yii\web\Controller;
-use app\models\Users;
-use app\models\UsersSearch;
+use app\models\Cars;
+use app\models\CarsSearch;
 use yii\data\ActiveDataProvider ;
 use yii\web\NotFoundHttpException;
 /**
  * manual CRUD
  **/
-class UsersController extends Controller
+class CarsController extends Controller
 {  
     public function actionDataProvider(){
-        $query = Users::find();
+        $query = Cars::find();
         $provider = new ActiveDataProvider([
            'query' => $query,
         ]);
-        // returns an array of users objects
-        $users = $provider->getModels();
-        var_dump($users);
+        // returns an array of cars objects
+        $cars = $provider->getModels();
+        var_dump($cars);
      }
 
     /**
@@ -27,7 +27,7 @@ class UsersController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Users();
+        $model = new Cars();
  
         if ($model->load(Yii::$app->request->post())) {
             $model->save();
@@ -41,7 +41,7 @@ class UsersController extends Controller
      */
     public function actionList()
     {    
-        $searchModel = new UsersSearch();
+        $searchModel = new CarsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('list', [
             'dataProvider' => $dataProvider,
@@ -49,12 +49,12 @@ class UsersController extends Controller
         ]);
     }
     /**
-     * Update
+     * Edit
      * @param integer $id
      */
-    public function actionUpdate($id)
+    public function actionEdit($id)
     {
-        $model = Users::find()->where(['id' => $id])->one();
+        $model = Cars::find()->where(['id' => $id])->one();
         // $id not found in database
         if($model === null)
             throw new NotFoundHttpException('The requested page does not exist.');
@@ -69,7 +69,7 @@ class UsersController extends Controller
     */
     public function actionDelete($id)
     {
-        $model =Users::findOne($id);
+        $model =Cars::findOne($id);
         
        // $id not found in database
        if($model === null)

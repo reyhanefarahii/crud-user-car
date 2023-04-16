@@ -2,8 +2,9 @@
 
 use yii\grid\GridView;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\grid\ActionColumn;
+use app\models\Orders;
+use yii\helpers\Url;
 ?>
  
 <style>
@@ -13,7 +14,7 @@ table th,td{
 }
 </style>
 
-<?= Html::a('Create', ['users/create'], ['class' => 'btn btn-success']); ?>
+<?= Html::a('Create', ['cars/create'], ['class' => 'btn btn-success']); ?>
  
 <?= GridView::widget([
     'dataProvider' => $dataProvider,
@@ -22,15 +23,14 @@ table th,td{
         'id',
         [
             'attribute' => 'name',
-            'value' => function ($users) {
-                return $users->name;
+            'value' => function ($cars) {
+                return $cars->name;
             },
             'label' => 'Name'
         ],
-        'family',
-        'national_code',
+        'color',
         [
-            'class' => ActionColumn::className(), 'template' => '{delete} {update}',
+            'class' => ActionColumn::className(), 'template' => '{delete}',
             'urlCreator' => function ($action,$model, $key, $index, $column){
                 return Url::toRoute([$action, 'id'=> $model->id]);
             }
